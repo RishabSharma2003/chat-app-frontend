@@ -16,7 +16,7 @@ const From = ({isSignInPage=false}) => {
     const handleSubmit=async(e)=>{
       console.log(data);
       e.preventDefault()
-      const res = await fetch(`chat-app-backened.vercel.app/api/${isSignInPage ? 'login' : 'register'}`, {
+      const res = await fetch(`https://chat-app-backened.vercel.app/api/${isSignInPage ? 'login' : 'register'}`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
