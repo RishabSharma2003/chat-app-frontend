@@ -20,7 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       const loggedInUser = JSON.parse(localStorage.getItem('user:detail'))
-      const res = await fetch(`http://localhost:8000/api/conversations/${loggedInUser.id}`, {
+      const res = await fetch(`chat-app-backened.vercel.app/api/conversations/${loggedInUser.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch(`http://localhost:8000/api/users/${user?.id}`, {
+      const res = await fetch(`chat-app-backened.vercel.app/api/users/${user?.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
   const fetchMessages = async (conversationId, receiver) => {
     //console.log(conversationId,receiver)
-    const res = await fetch(`http://localhost:8000/api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`, {
+    const res = await fetch(`chat-app-backened.vercel.app/api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Dashboard = () => {
   const sendMessage = async (e) => {
     try {
       //console.log("SEND Message>> ", message, messages?.conversationId, user?.id, messages?.receiver?.receiverId);
-      const res = await fetch(`http://localhost:8000/api/message`, {
+      const res = await fetch(`chat-app-backened.vercel.app/api/message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
